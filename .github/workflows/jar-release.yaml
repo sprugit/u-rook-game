@@ -27,14 +27,8 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
+          files: target/*.jar
           tag_name: v${{ github.run_number }}
           name: Release v${{ github.run_number }}
           draft: false
           prerelease: false
-
-      - name: Upload JAR to Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: target/*.jar
-          tag_name: v${{ github.run_number }}
-          name: Release v${{ github.run_number }}
