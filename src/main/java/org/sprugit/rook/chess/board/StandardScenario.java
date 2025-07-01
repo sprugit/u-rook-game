@@ -1,13 +1,15 @@
 package org.sprugit.rook.chess.board;
 
+import org.sprugit.game.Turn;
 import org.sprugit.rook.chess.board.inventory.BoardInventory;
+import org.sprugit.rook.chess.game.ChessTurn;
 import org.sprugit.rook.chess.game.GamePiece;
 import org.sprugit.rook.chess.moves.Position;
 import org.sprugit.rook.chess.piece.Piece;
 
-public class StandardBoard extends AbstractScenario {
+public final class StandardScenario extends AbstractScenario {
 
-    public StandardBoard() {
+    public StandardScenario() {
         this.pieces = new BoardInventory();
         // White pieces
         this.pieces.put(Position.from("a1"),new GamePiece(Piece.wr));
@@ -36,7 +38,7 @@ public class StandardBoard extends AbstractScenario {
         }
     }
 
-    public StandardBoard(BoardInventory pieces){
+    public StandardScenario(BoardInventory pieces){
         this.pieces = pieces;
     }
 
@@ -47,5 +49,4 @@ public class StandardBoard extends AbstractScenario {
         return ((int) 'a' <= x && x <= (int) 'g') &&
                 ((int) '1' <= y && y <= (int) '8');
     }
-
 }

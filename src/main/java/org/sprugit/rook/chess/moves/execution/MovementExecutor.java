@@ -1,8 +1,9 @@
 package org.sprugit.rook.chess.moves.execution;
 
+import org.sprugit.game.Color;
+import org.sprugit.rook.chess.board.AbstractScenario;
 import org.sprugit.rook.chess.game.Game;
 import org.sprugit.rook.chess.game.GameMovement;
-import org.sprugit.rook.chess.piece.Color;
 import org.sprugit.rook.chess.piece.Piece;
 
 public abstract class MovementExecutor {
@@ -24,6 +25,6 @@ public abstract class MovementExecutor {
     public static CastlingMovement castle = new CastlingMovement();
     public static InvalidMovement invalid = new InvalidMovement();
 
-    public abstract void apply(GameMovement gm, Game g) throws InvalidMoveException;
+    public abstract void apply(GameMovement gm, AbstractScenario as) throws InvalidMoveException;
 
 }

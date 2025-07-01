@@ -6,7 +6,7 @@ import org.sprugit.rook.chess.board.inventory.BoardInventory;
 import org.sprugit.rook.chess.game.GameMovement;
 import org.sprugit.rook.chess.game.GamePiece;
 import org.sprugit.rook.chess.board.AbstractScenario;
-import org.sprugit.rook.chess.board.StandardBoard;
+import org.sprugit.rook.chess.board.StandardScenario;
 import org.sprugit.rook.chess.moves.Position;
 import org.sprugit.rook.chess.piece.Piece;
 import org.sprugit.rook.chess.piece.Type;
@@ -16,7 +16,7 @@ public class StandardBoardTest {
     @Test
     public void initBoardTest() {
 
-        AbstractScenario as = new StandardBoard();
+        AbstractScenario as = new StandardScenario();
 
         Assertions.assertEquals(Type.ROOK, as.getPieces().pieceAt(Position.from("a1")).get().getPiece().type());
 
@@ -32,7 +32,7 @@ public class StandardBoardTest {
         pieces.put(start,moving);
         pieces.put(Position.from("e5"),new GamePiece(Piece.bp, true));
 
-        AbstractScenario as = new StandardBoard(pieces);
+        AbstractScenario as = new StandardScenario(pieces);
 
         Position target1 = Position.from("d6");
         Position target2 = Position.from("f4");

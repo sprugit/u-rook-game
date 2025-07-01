@@ -1,5 +1,7 @@
 package org.sprugit.rook.chess.piece;
 
+import org.sprugit.game.Color;
+
 public record Piece(Color color, Type type) {
 
     public static Piece wp = new Piece(Color.WHITE,Type.PAWN);

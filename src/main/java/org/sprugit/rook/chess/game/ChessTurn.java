@@ -1,16 +1,16 @@
 package org.sprugit.rook.chess.game;
 
-import org.sprugit.rook.chess.piece.Color;
+import org.sprugit.game.Color;
+import org.sprugit.game.Turn;
 
 import java.time.LocalDateTime;
 
-public class PlayerTurn {
+public class ChessTurn extends Turn {
 
-    private Color player;
     private GameMovement gm;
     private LocalDateTime submitted = LocalDateTime.now();
 
-    public PlayerTurn(Color player, GameMovement gm) {
+    public ChessTurn(Color player, GameMovement gm) {
         this.player = player;
         this.gm = gm;
     }

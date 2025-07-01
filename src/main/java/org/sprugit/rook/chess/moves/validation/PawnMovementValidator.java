@@ -1,5 +1,7 @@
 package org.sprugit.rook.chess.moves.validation;
 
+import org.sprugit.game.Color;
+import org.sprugit.rook.chess.board.AbstractScenario;
 import org.sprugit.rook.chess.board.inventory.BoardInventory;
 import org.sprugit.rook.chess.game.Game;
 import org.sprugit.rook.chess.game.GameMovement;
@@ -7,7 +9,6 @@ import org.sprugit.rook.chess.game.GamePiece;
 import org.sprugit.rook.chess.moves.MovementVector;
 import org.sprugit.rook.chess.moves.Position;
 import org.sprugit.rook.chess.moves.execution.MovementExecutor;
-import org.sprugit.rook.chess.piece.Color;
 
 import java.util.Optional;
 
@@ -18,9 +19,9 @@ public class PawnMovementValidator extends MovementValidator{
     protected static final PawnMovementValidator pmv = new PawnMovementValidator();
 
     @Override
-    public MovementExecutor validate(GameMovement gm, Game g) {
+    public MovementExecutor validate(GameMovement gm, AbstractScenario as) {
 
-        BoardInventory pieces = g.getBoard().getPieces();
+        BoardInventory pieces = as.getPieces();
 
         Optional<GamePiece> pieceAtStart = pieces.pieceAt(gm.getFrom());
         if(pieceAtStart.isEmpty())
@@ -41,7 +42,7 @@ public class PawnMovementValidator extends MovementValidator{
         if(isMovementVector(v, 2) && pieceAtStart.get().hasMoved())
             return MovementExecutor.invalid;
 
-        if(!g.getBoard().isValidPath(gm))
+        if(!as.isValidPath(gm))
             return MovementExecutor.invalid;
 
         Optional<GamePiece> pieceAtEnd = pieces.pieceAt(gm.getTo());

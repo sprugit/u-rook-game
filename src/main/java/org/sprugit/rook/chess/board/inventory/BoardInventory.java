@@ -1,9 +1,9 @@
 package org.sprugit.rook.chess.board.inventory;
 
+import org.sprugit.game.Color;
 import org.sprugit.rook.chess.game.GameMovement;
 import org.sprugit.rook.chess.game.GamePiece;
 import org.sprugit.rook.chess.moves.Position;
-import org.sprugit.rook.chess.piece.Color;
 import org.sprugit.rook.chess.piece.Piece;
 
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class BoardInventory {
+public final class BoardInventory {
 
     public static class InvalidMoveException extends RuntimeException{}
 

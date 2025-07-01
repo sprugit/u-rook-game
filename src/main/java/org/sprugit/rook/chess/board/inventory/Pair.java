@@ -3,7 +3,7 @@ package org.sprugit.rook.chess.board.inventory;
 import org.sprugit.rook.chess.game.GamePiece;
 import org.sprugit.rook.chess.moves.Position;
 
-public class Pair {
+public final class Pair {
 
     private Position p;
     private GamePiece gp;

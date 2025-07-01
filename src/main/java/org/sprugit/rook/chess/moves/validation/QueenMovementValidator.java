@@ -1,5 +1,6 @@
 package org.sprugit.rook.chess.moves.validation;
 
+import org.sprugit.rook.chess.board.AbstractScenario;
 import org.sprugit.rook.chess.game.Game;
 import org.sprugit.rook.chess.game.GameMovement;
 import org.sprugit.rook.chess.game.GamePiece;
@@ -15,19 +16,19 @@ public class QueenMovementValidator extends MovementValidator{
     protected static final QueenMovementValidator qmv = new QueenMovementValidator();
 
     @Override
-    public MovementExecutor validate(GameMovement gm, Game g) {
+    public MovementExecutor validate(GameMovement gm, AbstractScenario as) {
 
-        Optional<GamePiece> pieceAtStart = g.getBoard().getPieces().pieceAt(gm.getFrom());
+        Optional<GamePiece> pieceAtStart = as.getPieces().pieceAt(gm.getFrom());
         if(pieceAtStart.isEmpty())
             return MovementExecutor.invalid;
 
         if(!vectorValidator(gm.getVector()))
             return MovementExecutor.invalid;
 
-        if(!g.getBoard().isValidPath(gm))
+        if(!as.isValidPath(gm))
             return MovementExecutor.invalid;
 
-        Optional<GamePiece> pieceAtEnd = g.getBoard().getPieces().pieceAt(gm.getTo());
+        Optional<GamePiece> pieceAtEnd = as.getPieces().pieceAt(gm.getTo());
 
         if(pieceAtEnd.isEmpty())
             return MovementExecutor.move;
